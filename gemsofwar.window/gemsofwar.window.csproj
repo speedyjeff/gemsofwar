@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenCvSharp4" Version="4.5.2.20210404" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.5.2.20210404" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\engine\engine.Common\engine.Common.csproj" />
+    <ProjectReference Include="..\engine\engine.Winforms\engine.Winforms.csproj" />
+    <ProjectReference Include="..\gemsofwar.engine.ai\gemsofwar.engine.ai.csproj" />
+    <ProjectReference Include="..\gemsofwar.engine\gemsofwar.engine.csproj" />
+  </ItemGroup>
+
+</Project>

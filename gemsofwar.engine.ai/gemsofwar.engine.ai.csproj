@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenCvSharp4" Version="4.5.2.20210404" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gemsofwar.engine\gemsofwar.engine.csproj" />
+  </ItemGroup>
+
+</Project>
