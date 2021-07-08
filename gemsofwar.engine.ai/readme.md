@@ -83,6 +83,8 @@ Three machine models were considered - [image classifier](https://en.wikipedia.o
 
 The model is trained using [OpenCV](https://opencv.org/) and the [OpenCVSharpv4](https://github.com/shimat/opencvsharp) adaptor for .NET.  The input data is a 30 element float array of r,g,b elements normalized to 0.0-1.0 that represent the 10 pixels sampled from the gem image.
 
+To increase the usefulness of the data gathered, trained models apply two filters to the incoming image: pixel shift from the edges, and increased brightness.  These additional data points are intended to help smooth out differences that occur from day to day.
+
 This model can achieve a 99.02268210725726% prediction accuracy (as measured by R^2).
 
 Each individual label is also predicted >99%.
