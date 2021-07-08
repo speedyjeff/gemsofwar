@@ -49,6 +49,8 @@ Now that we have an approach to extract the gem board (via a user defined boundi
 
 Battle gems consist of Red, Blue, Green, Purple, Yellow, Brown, and Skulls, and Treasure Hunts consist of Bronze, Silver, Gold, Bags, Chest, Green Chest, Red Chest, and Safes.  Each gems have identifying markings and colors.
 
+Gems
+-----------------
 ![red gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/red.png) | ![blue gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/blue.png) | ![green gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/green.png) | ![yellow gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/yellow.png) | ![brown gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/brown.png) | ![purple gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/purple.png) | ![skull gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/skull.png) |
 ![bronze](https://github.com/speedyjeff/gemsofwar/blob/master/images/bronze.png) | ![silver](https://github.com/speedyjeff/gemsofwar/blob/master/images/silver.png) | ![gold](https://github.com/speedyjeff/gemsofwar/blob/master/images/gold.png) | ![bag](https://github.com/speedyjeff/gemsofwar/blob/master/images/bag.png) | ![chest](https://github.com/speedyjeff/gemsofwar/blob/master/images/chest.png) | ![green chest](https://github.com/speedyjeff/gemsofwar/blob/master/images/greenchest.png) | ![red chest](https://github.com/speedyjeff/gemsofwar/blob/master/images/redchest.png) | ![safe](https://github.com/speedyjeff/gemsofwar/blob/master/images/safe.png)
 

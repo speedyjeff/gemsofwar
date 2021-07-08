@@ -11,7 +11,7 @@ The task of 'playing Gems of War' is actually a number of smaller components tha
 
 The end-to-end can be seen in the [gemsofwar.window](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.window/readme.md) application.  There is sample data contained within the repo to give this a try.
 
-####Multiple phases
+#### Multiple phases
 
 1. (done) Build the Gems of War game engine
 

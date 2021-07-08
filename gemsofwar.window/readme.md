@@ -6,6 +6,8 @@ The UI is was written for function over beauity.
 
 ### UI Explained
 
+UI Components
+-------------
 Live view | Gems Board
 Image Controls |
 Actions |
