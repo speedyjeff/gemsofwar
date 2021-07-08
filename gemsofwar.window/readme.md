@@ -2,22 +2,22 @@
 
 ![game play](https://github.com/speedyjeff/gemsofwar/blob/master/images/winapp.png)
 
-The UI is was written for function over beauity.  
+The UI is was written for function over beauty.
 
 ### UI Explained
 
 UI Components  | 
 ---------------|-----------
 Live view      | Gems Board
-Image Controls |
-Actions        |
+Image Controls | 
+Actions        | 
 Gem Preview    | Move Details
 
  - Live View - This is view that is within the cameras view. Click and stretch a rectangle to restrict the viewing region to only the gems.
  - Gems Board - This is what the computer thinks it seems.
-   - Each of the cells can be clicked to change the gem color (if choosen incorrect).  Clicking high in the cell cycles the color up, and clicking low cycles the color down.
+   - Each of the cells can be clicked to change the gem color (if chosen incorrect).  Clicking high in the cell cycles the color up, and clicking low cycles the color down.
    - The left most part is the toolbar where you can assign special effects to gems like 'lycanthropy' or 'x5 doom skull'.
-   - The list of colors on the far left is the preferred order of what colors to match first.  Click on the elipses to cycle to the next color.
+   - The list of colors on the far left is the preferred order of what colors to match first.  Click on the ellipses to cycle to the next color.
  - Image Controls - Control the 'brightness', 'contrast', and 'gamma' which can help with the trained models
  - Actions
    - Capture - Take a live image capture to process.
@@ -27,11 +27,11 @@ Gem Preview    | Move Details
    - Demo Path - You can choose a different path of static images.
    - Battle drop down - Choose the rule set between 'Battle' and 'Treasure'
  - Gems Preview - Each individual gem is pulled out of the larger image and shown here along with the label.  The '->' buttons can be used to cycle through all the gems.  The drop downs can be used to provide a label for what each of these gems are (to train the model).
- - Move Details - Provides a list of what impact each move will have if choosen.  This is in a sorted order and the most impactful option is presented first and shown with an arrow in the Gems Board.
+ - Move Details - Provides a list of what impact each move will have if chosen.  This is in a sorted order and the most impactful option is presented first and shown with an arrow in the Gems Board.
 
 ### Suggested workflow
 
-First thing choose if you plan on playing a 'Battle' or 'Treasure' hunt via the Actions->Battle drop down selector.
+First thing is to choose if you plan on playing a 'Battle' or 'Treasure' hunt via the Actions->Battle drop down selector.
 
 #### Demo Capture
 
@@ -118,7 +118,7 @@ Success : 13759
 
 Follow all the steps in 'Live Capture + Train', you can use the model to suggest moves and play the game.
 
-To assist the suggestion engine to choose the colors in the order that you want them choosen, use the tool bar in the Gems Board.  Start with the 1st slot and choose the 1st color (by clicking), the 2nd, and so forth.  In addition, choose the 'wolf' and 'x5' to select gems that have these effects.
+To assist the suggestion engine to choose the colors in the order that you want them chosen, use the tool bar in the Gems Board.  Start with the 1st slot and chose the 1st color (by clicking), the 2nd, and so forth.  In addition, choose the 'wolf' and 'x5' to select gems that have these effects.
 
 The model is not 100% accurate all the time, so you may need to correct a color of a gem and then press 'Guess' to reselect the optimal move.
 

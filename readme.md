@@ -7,7 +7,7 @@ Well, sure.  This project started the process of building a tool that can play G
 
 ### Decomposing the problem into phases
 
-The task of 'playing Gems of War' is actually a number of smaller components that can be built independently and combined.
+The task of 'playing Gems of War' consists of several smaller components that can be built independently and combined.
 
 The end-to-end can be seen in the [gemsofwar.window](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.window/readme.md) application.  There is sample data contained within the repo to give this a try.
 
@@ -16,7 +16,7 @@ The end-to-end can be seen in the [gemsofwar.window](https://github.com/speedyje
 1. (done) Build the Gems of War game engine
 
 The most basic building block is that you need to build a [gemsofwar.engine](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.engine/readme.md) which includes the rules of the original game.
-The engine is a fairly simple 8x8 grid with match semantics.  There are two rule sets for matches: Battle the gems disapear and Treasure Maps where the gem is upgraded to the next type (at the point of the match).
+The engine is a simple 8x8 grid with match semantics.  There are two rule sets for matches: Battle the gems disappear and Treasure Maps where the gem is upgraded to the next type (at the point of the match).
 
 The simplest form of the game can be seen in the [gemsofwar.console](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.console/readme.md).
 
@@ -25,9 +25,9 @@ The simplest form of the game can be seen in the [gemsofwar.console](https://git
 ```
 ![gemsofwar.console](https://github.com/speedyjeff/gemsofwar/blob/master/images/gemsofwar.console.png)
 
-2. (done*) Intrepret the visual board and translate into the game engine
+2. (done*) Interpret the visual board and translate into the game engine
 
-This has been frankly the hardest part of the project as we play on a console and need an external camera to intrepret what is on the board to then be fed into the local game engine.
+This has been frankly the hardest part of the project as we play on a console and need an external camera to interpret what is on the board to then be fed into the local game engine.
 Gems of War gems offer two defining characteristics - their color and markings.  The [gemsofwar.ai](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.ai/readme.md) contains most of the details on how a machine learning model was built to detect these gems.
 
 ![red gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/red.png)
@@ -35,23 +35,23 @@ Gems of War gems offer two defining characteristics - their color and markings. 
 
 The distinct color was the primary feature used to automatically determine the color of gems.
 
-* The model(s) can achieve a higher than 97% accuracy, so in a typical 8x8 grid (64 gems) it misses 2-3 which means that it is not viable for a realtime engine.  More work is needed to improve the accuracy.
+* The model(s) can achieve a higher than 97% accuracy, so in a typical 8x8 grid (64 gems) it misses 2-3 which means that it is not viable for a real time engine.  More work is needed to improve the accuracy.
 
 3. (done) Determine an optimal move
 
-Originally the plan was to train a model to learn to play, perhaps leveraing [q-learning](https://en.wikipedia.org/wiki/Q-learning), however upon 'doing the math' there are well over a billion individual game boards.  As such, a simpilier approach of hand written heuristics where choose.
-An explaination of the heuristics and order can be found in [StrategyCompare.cs](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.ai/StrategyCompare.cs).
+Originally the plan was to train a model to learn to play, perhaps leveraging [q-learning](https://en.wikipedia.org/wiki/Q-learning), however upon 'doing the math' there are well over a billion individual game boards.  As such, a simpler approach of handwritten heuristics where choose.
+An explanation of the heuristics and order can be found in [StrategyCompare.cs](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.engine.ai/StrategyCompare.cs).
 
-Experimentally, the hueristics do a good job of predicting the impact (though the randomization of gems fallen is not taken into account).
+Experimentally, the heuristics do a good job of predicting the impact (though the randomization of gems fallen is not considered).
 
 4. (not planned) Apply it to the game
 
-At this point we have a system that can intrepret the live game on a console, translate it into a local system, and determine the optimal move.  The next logical step is to automatically perform the move on the console (via some sort of automation).  
+At this point we have a system that can interpret the live game on a console, translate it into a local system, and determine the optimal move.  The next logical step is to automatically perform the move on the console (via some sort of automation).  
 I have no plan to make this happen.
 
 5. (not planned) Model more than just matching gems into considering characters abilities
 
-Beyond matching gems, Gems of War offers a very rich set of character abilities that executed.  A complete game engine would need to take these into account and model there effects.
+Beyond matching gems, Gems of War offers a rich set of character abilities that executed.  A complete game engine would need to take these into account and model their effects.
 I have no plan to make this happen.
 
 ### Setup

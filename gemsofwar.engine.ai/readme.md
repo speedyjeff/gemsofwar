@@ -1,6 +1,6 @@
 ## Gems of War Machine Learning Models
 
-There are a number of phases to achieve being able to translate a picture of the Gems of War board into the correct gem types.
+There are several phases to achieve being able to translate a picture of the Gems of War board into the correct gem types.
 
 ### Finding the board of gems
 
@@ -8,12 +8,12 @@ Given an image the first step is to identify the board of gems.
 
 ![gemsofwar.console](https://github.com/speedyjeff/gemsofwar/blob/master/images/treasurehunt.jpg)
 
-As a first attempt, I leverged a number of simple techniques to modify the image in the attempt to identify the edges and highlight the gems.  Each of these were a heuristic based approach and each suffered from the fact that specific colors were used as the identifiers, which would naturally vary from camera to camera.  As such, time was spent with this approach but it was not successful.
+As a first attempt, I leveraged several simple techniques to modify the image in the attempt to identify the edges and highlight the gems.  Each of these were a heuristic-based approach and each suffered from the fact that specific colors were used as the identifiers, which would naturally vary from camera to camera.  As such, time was spent with this approach, but it was not successful.
 
  - Pixelate
 Average the pixel color per chunk and replace
 
-![gemsofwar.console](https://github.com/speedyjeff/gemsofwar/blob/master/images/grayscale.jpg)
+![gemsofwar.console](https://github.com/speedyjeff/gemsofwar/blob/master/images/pixelate.jpg)
 
  - Flatten colors
 Only keep predetermined colors (common colors for each gem)
@@ -21,7 +21,7 @@ Only keep predetermined colors (common colors for each gem)
 ![gemsofwar.console](https://github.com/speedyjeff/gemsofwar/blob/master/images/flatten.jpg)
 
  - Remove colors
-Remove colors that make up the background and seperators
+Remove colors that make up the background and separators
 
 ![gemsofwar.console](https://github.com/speedyjeff/gemsofwar/blob/master/images/remove.jpg)
 
@@ -45,13 +45,12 @@ The proposed solution to this problem was for the user to draw a bounding box wi
 
 ### Identifying gems
 
-Now that we have an approach to extract the gem board (via a user defined bounding rectangle) the next problem was to identify what type of gem based on the image.  Given the bounding box is a rectangle and the gems are proportionally layed out, it was easy to break the board into 64 chunks and consider each gem individually.
+Now that we have an approach to extract the gem board (via a user defined bounding rectangle) the next problem was to identify what type of gem based on the image.  Given the bounding box is a rectangle and the gems are proportionally laid out, it was easy to break the board into 64 chunks and consider each gem individually.
 
-Battle gems consist of Red, Blue, Green, Purple, Yellow, Brown, and Skulls, and Treasure Hunts consist of Bronze, Silver, Gold, Bags, Chest, Green Chest, Red Chest, and Safes.  Each gems have identifying markings and colors.
+Battle gems consist of Red, Blue, Green, Purple, Yellow, Brown, and Skulls, and Treasure Hunts consist of Bronze, Silver, Gold, Bags, Chest, Green Chest, Red Chest, and Safes.  Each gem has identifying markings and colors.
 
-Gems
------------------
-![red gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/red.png) | ![blue gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/blue.png) | ![green gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/green.png) | ![yellow gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/yellow.png) | ![brown gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/brown.png) | ![purple gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/purple.png) | ![skull gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/skull.png) |
+![red gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/red.png) | ![blue gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/blue.png) | ![green gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/green.png) | ![yellow gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/yellow.png) | ![brown gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/brown.png) | ![purple gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/purple.png) | ![skull gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/skull.png)
+
 ![bronze](https://github.com/speedyjeff/gemsofwar/blob/master/images/bronze.png) | ![silver](https://github.com/speedyjeff/gemsofwar/blob/master/images/silver.png) | ![gold](https://github.com/speedyjeff/gemsofwar/blob/master/images/gold.png) | ![bag](https://github.com/speedyjeff/gemsofwar/blob/master/images/bag.png) | ![chest](https://github.com/speedyjeff/gemsofwar/blob/master/images/chest.png) | ![green chest](https://github.com/speedyjeff/gemsofwar/blob/master/images/greenchest.png) | ![red chest](https://github.com/speedyjeff/gemsofwar/blob/master/images/redchest.png) | ![safe](https://github.com/speedyjeff/gemsofwar/blob/master/images/safe.png)
 
 The first thing was to determine the right normalization of the gem to aid with identification.  The following approaches were used in order.
@@ -60,10 +59,10 @@ The first thing was to determine the right normalization of the gem to aid with 
 The process was to take the average red,green,blue colors and use that to determine the overall color.  It turned out with the 3d shading used on the gems that the average color is about the same for all the gems (a lovely mauve).
 
  - Most common color
-The most common color was more promissing, but for the darker gems they were about the same (largely black).
+The most common color was more promising, but for the darker gems they were about the same (largely black).
 
  - Variations on filtering (out black, out white)
-Through most of these normalizations I tried to filter out a set of colors - high intensity, low intensity, black, etc.  These were very helpful, but did not really change either the most common color or average.
+Through most of these normalizations I tried to filter out a set of colors - high intensity, low intensity, black, etc.  These were very helpful but did not really change either the most common color or average.
 
  - Rounding the colors to the closest 10's
 I sampled images from various cameras and found that saturation and brightness varied a lot, so I tried attempts to smooth out the color intensity by rounding.  This did not yield a promising result.
@@ -76,15 +75,15 @@ The final approach, which has yielded strong results, was to sample 10 pixels in
 
 ![blue normalized](https://github.com/speedyjeff/gemsofwar/blob/master/images/blue-normalized.png)
 
-By normalizing to a 0-1 value based on the 255 value for each r,g,b using the + shape, and a decision tree regession is able to identify the shapes at ~97% accuracy.
+By normalizing to a 0-1 value based on the 255 value for each r,g,b using the + shape, and a decision tree regression is able to identify the shapes at ~97% accuracy.
 
 ### Training the model
 
-Three machine models were considered - [image classifier](https://en.wikipedia.org/wiki/Contextual_image_classification), [random tree forest](https://en.wikipedia.org/wiki/Random_tree), and [decision trees](https://en.wikipedia.org/wiki/Decision_tree).  Based on accuracy and performance, the decision tree algorithm was choosen.
+Three machine models were considered - [image classifier](https://en.wikipedia.org/wiki/Contextual_image_classification), [random tree forest](https://en.wikipedia.org/wiki/Random_tree), and [decision trees](https://en.wikipedia.org/wiki/Decision_tree).  Based on accuracy and performance, the decision tree algorithm was chosen.
 
 The model is trained using [OpenCV](https://opencv.org/) and the [OpenCVSharpv4](https://github.com/shimat/opencvsharp) adaptor for .NET.  The input data is a 30 element float array of r,g,b elements normalized to 0.0-1.0 that represent the 10 pixels sampled from the gem image.
 
-This model is able to achieve a 99.02268210725726% prediction accuracy (as measured by R^2).
+This model can achieve a 99.02268210725726% prediction accuracy (as measured by R^2).
 
 Each individual label is also predicted >99%.
 
@@ -115,19 +114,19 @@ The model exposes a set of configuration nobs that can be adjusted to further op
         public bool[] SkipFeatures { get; set; }
 ```
 
-The first set of options are the tranditional knobs provided by the Decision Tree model.  The later adjust the rounding precision of the normalized data and how many of the features to consider when training the model.
+The first set of options are the traditional knobs provided by the Decision Tree model.  The later adjust the rounding precision of the normalized data and how many of the features to consider when training the model.
 
 ### Genetic Algorithm
 
 Genetic algorithms start with a random set of configurations and morph into optimal by process of observation.  
 
-The [genetic algorithm](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.ai/GeneticAlgorithm.cs) follows a very simple process.
+The [genetic algorithm](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.engine.ai/GeneticAlgorithm.cs) follows a very simple process.
 
 1. Generate a population of N random configuration
-2. Evaluate each (train a model, and evalute the fitness based on the least performing label)
+2. Evaluate each (train a model, and evaluate the fitness based on the least performing label)
 3. The top 10% of the population is moved to the next generation
-4. The remaining 90% of the population is choosen by a combination of the current population
-  a. Pairs of configs are choosen from the population to combine
+4. The remaining 90% of the population is chosen by a combination of the current population
+  a. Pairs of configs are chosen from the population to combine
   b. There is a 45% chance of taking a trait from one of the parents, and a 10% chance to have a mutation (a random trait)
 5. The process goes back to step 2 for X generations
 
@@ -172,16 +171,16 @@ Using this approach an optimal set of configurations can be determined for the s
 
 ### Choosing the optimal move
 
-In order to choose an optimal move, each possible move is done and the impact measured.  The biggest caveat to this approach is that new gems are not added to board (as that is random and not attempted to be modeled).  
+In order to choose an optimal move, each possible move is done, and the impact measured.  The biggest caveat to this approach is that new gems are not added to board (as that is random and not attempted to be modeled).  
 
-A tree of moves is generated acculated how many gems are matched and what are created.  An ideal match is then determined by a set of heuristics.
+As the tree of moves is generated it accumulates how many gems are matched and what are created.  An ideal match is then determined by a set of heuristics.
 
 ```
         //                                           RemoveGemOnMatch  UpgradeGemOnMatch
         //  1) Match a 4+                            1                 1
         //    a) Creates a 4+                        1.a               1.a
         //    b) Match preference                    1.b               1.b
-        //    c) Creates a match peference           1.c               1.c
+        //    c) Creates a match preference          1.c               1.c
         //    d) Most matched                        1.d               1.d
         //    e) Creates the most to match           1.e               1.e
         //    f) equal                               1.f               1.f
