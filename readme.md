@@ -28,7 +28,7 @@ The simplest form of the game can be seen in the [gemsofwar.console](https://git
 2. (done*) Interpret the visual board and translate into the game engine
 
 This has been frankly the hardest part of the project as we play on a console and need an external camera to interpret what is on the board to then be fed into the local game engine.
-Gems of War gems offer two defining characteristics - their color and markings.  The [gemsofwar.ai](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.ai/readme.md) contains most of the details on how a machine learning model was built to detect these gems.
+Gems of War gems offer two defining characteristics - their color and markings.  The [gemsofwar.engine.ai](https://github.com/speedyjeff/gemsofwar/blob/master/gemsofwar.engine.ai/readme.md) contains most of the details on how a machine learning model was built to detect these gems.
 
 ![red gem](https://github.com/speedyjeff/gemsofwar/blob/master/images/red.png)
 ![green chest](https://github.com/speedyjeff/gemsofwar/blob/master/images/greenchest.png)

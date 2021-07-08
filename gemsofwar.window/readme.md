@@ -6,12 +6,12 @@ The UI is was written for function over beauty.
 
 ### UI Explained
 
-UI Components  | 
----------------|-----------
-Live view      | Gems Board
-Image Controls | 
-Actions        | 
-Gem Preview    | Move Details
+Column 1 | Column 2 
+---------|----------
+Live view | Gems Board
+Image Controls | Gems Board
+Actions | Gems Board
+Gem Preview | Move Details
 
  - Live View - This is view that is within the cameras view. Click and stretch a rectangle to restrict the viewing region to only the gems.
  - Gems Board - This is what the computer thinks it seems.
