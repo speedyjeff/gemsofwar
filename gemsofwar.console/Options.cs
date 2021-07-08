@@ -26,7 +26,7 @@ namespace gemsofwar.console
 
         public static void DisplayHelp()
         {
-            Console.WriteLine("./gemsofwar.console [help|-?|evaluate|evolve|createboard|dumpboard|play]");
+            Console.WriteLine("./gemsofwar.console [help|-?|evaluate|evolve|createboard|dumpboard|play|check]");
             Console.WriteLine();
             Console.WriteLine("    * train -path <path> -output <filename>");
             Console.WriteLine("      trains a model given an input of .dmp and .dat files");
